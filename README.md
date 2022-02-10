@@ -12,27 +12,18 @@ Link to UML Class Diagram:
 https://drive.google.com/file/d/1EGT8TMok6fjgRhuCI_TGFmP8BGSkTbso/view?usp=sharing
 
 Three Use Cases that you will implement first:
-1. - Customer
-2. - Teller
-3. - Admin
+1. - Login
+2. - createAccount
+3. - Deposit
 
 Which classes & methods do you need to implement for these use cases?
 (Indicated which team member is responsible for the implemenation)
-1. - checkBalance
-2. - withdraw
-3. - deposit
-4. - transfer
-5. - createAccount
-6. - createChecking
-7. - createSaving
-8. - closeAccount
-9. - checkOverall
-10. - requestReport
-11. - freezeAccount
-12. - unfreezeAccount
-5. - tellerLogin
-5. - customerLogin
-5. - adminLogin
+1. - customerLogin
+2. - createChecking
+3. - createSaving
+4. - deposit
+5. - isAmountValid
+6. - <<Add more...>>
 
 Don't forget to use Test-Driven Development (TDD)
 1. Write Class and Method Function Headers
