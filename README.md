@@ -3,26 +3,36 @@
 ## Project 01 - Bank Software
 
 Names:
-<< add 3-4 names here >>
+Ellen, Travis, Billy
 
 Link to UML Use Case Diagram:
-<< add linkk here >>
-
-Link to UML Class Diagram:
 << add link here >>
 
+Link to UML Class Diagram:
+https://drive.google.com/file/d/1EGT8TMok6fjgRhuCI_TGFmP8BGSkTbso/view?usp=sharing
+
 Three Use Cases that you will implement first:
-1. -
-2. - 
-3. - 
+1. - Customer
+2. - Teller
+3. - Admin
 
 Which classes & methods do you need to implement for these use cases?
 (Indicated which team member is responsible for the implemenation)
-1. -
-2. -
-3. -
-4. -
-5. << add more as needed >>
+1. - checkBalance
+2. - withdraw
+3. - deposit
+4. - transfer
+5. - createAccount
+6. - createChecking
+7. - createSaving
+8. - closeAccount
+9. - checkOverall
+10. - requestReport
+11. - freezeAccount
+12. - unfreezeAccount
+5. - tellerLogin
+5. - customerLogin
+5. - adminLogin
 
 Don't forget to use Test-Driven Development (TDD)
 1. Write Class and Method Function Headers
