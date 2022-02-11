@@ -33,7 +33,15 @@ public class BankAccount {
      * @throws IllegalArgumentException if too many decimals are entered
      */
     public static boolean isAmountValid(double amount){
-        return false;
+        if((amount*100)%1 != 0){
+            throw new IllegalArgumentException("Too many decimals, please enter a valid amount.");
+        }
+        else if(amount < 0 ){
+            throw new IllegalArgumentException("Please enter a positive amount.");
+        }
+        else{
+            return true;
+        }
     }
 
     /**
@@ -42,7 +50,9 @@ public class BankAccount {
      * increases the balance by the amount is the amount is non-negative
      */
     public void deposit(double amount){
-
+        if(isAmountValid(amount)){
+            balance += amount;
+        }
     }
 
     /**
