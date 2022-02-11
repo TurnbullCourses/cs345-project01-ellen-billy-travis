@@ -9,12 +9,6 @@ public class SavingAccount extends abstractBankAccount{
     }
 
     @Override
-    String getEmail() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
     boolean isAmountValid(double amount) {
         // TODO Auto-generated method stub
         return false;
@@ -39,15 +33,8 @@ public class SavingAccount extends abstractBankAccount{
     }
 
     @Override
-    boolean isEmailValid(String email) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
     void checkHistory() {
         // TODO Auto-generated method stub
         
     }
-  
 }
