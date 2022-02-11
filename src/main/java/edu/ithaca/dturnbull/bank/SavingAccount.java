@@ -2,10 +2,16 @@ package edu.ithaca.dturnbull.bank;
 
 public class SavingAccount extends abstractBankAccount{
 
+    private double balance;
+
+    public SavingAccount(String email, double startingBalance){
+        this.balance = startingBalance;
+    }
+
     @Override
     double getBalance() {
         // TODO Auto-generated method stub
-        return 0;
+        return balance;
     }
 
     @Override
