@@ -7,13 +7,7 @@ public class CheckingAccount extends abstractBankAccount{
         // TODO Auto-generated method stub
         return 0;
     }
-
-    @Override
-    String getEmail() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
+    
     @Override
     boolean isAmountValid(double amount) {
         // TODO Auto-generated method stub
@@ -36,12 +30,6 @@ public class CheckingAccount extends abstractBankAccount{
     void transfer(double amount) {
         // TODO Auto-generated method stub
         
-    }
-
-    @Override
-    boolean isEmailValid(String email) {
-        // TODO Auto-generated method stub
-        return false;
     }
 
     @Override
