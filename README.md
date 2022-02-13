@@ -6,7 +6,7 @@ Names:
 Ellen, Travis, Billy
 
 Link to UML Use Case Diagram:
-<< add link here >>
+https://drive.google.com/file/d/1EGT8TMok6fjgRhuCI_TGFmP8BGSkTbso/view?usp=sharing
 
 Link to UML Class Diagram:
 https://drive.google.com/file/d/1EGT8TMok6fjgRhuCI_TGFmP8BGSkTbso/view?usp=sharing
