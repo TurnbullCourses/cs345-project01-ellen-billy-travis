@@ -1,13 +1,23 @@
 package edu.ithaca.dturnbull.bank;
 
-public class CheckingAccount extends abstractBankAccount{
+public class CheckingAccount extends BankAccount{
 
-    private double balance;
+    public CheckingAccount(double startingBalance){
+        if(isAmountValid(startingBalance))
+            this.balance = startingBalance;
 
-    public CheckingAccount(String email, double startingBalance){
-        this.balance = startingBalance;
+        status = BankAccountStatus.OPEN;
+        accountType = BankAccountType.CHECKING;
+        history = new String[]{"Account Created"};
     }
+
+
+
+
+    /*
         
+    ----------Unnecessary------------
+
     @Override
     double getBalance() {
         // TODO Auto-generated method stub
@@ -44,4 +54,5 @@ public class CheckingAccount extends abstractBankAccount{
         
     }
 
+    */
 }

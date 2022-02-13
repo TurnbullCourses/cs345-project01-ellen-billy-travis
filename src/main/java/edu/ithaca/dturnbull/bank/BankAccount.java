@@ -1,14 +1,16 @@
 package edu.ithaca.dturnbull.bank;
 
-public class BankAccount {
+public abstract class BankAccount {
 
-    private String email;
-    private double balance;
+    protected String history[];
+    protected BankAccountType accountType;
+    protected BankAccountStatus status;
+    protected double balance;
 
     /**
      * @throws IllegalArgumentException if email is invalid
      */
-    public BankAccount(String email, double startingBalance){
+    /*public BankAccount(String email, double startingBalance){
         if (isEmailValid(email)){
             this.email = email;
             this.balance = startingBalance;
@@ -16,15 +18,16 @@ public class BankAccount {
         else {
             throw new IllegalArgumentException("Email address: " + email + " is invalid, cannot create account");
         }
-    }
+    }*/
 
     public double getBalance(){
         return balance;
     }
 
-    public String getEmail(){
+    /*public String getEmail(){
         return email;
     }
+    */
 
     /**
      * 
@@ -67,7 +70,7 @@ public class BankAccount {
         }
     }
 
-
+/*
     public static boolean isEmailValid(String email){
         if (email.indexOf('@') == -1){
             return false;
@@ -76,4 +79,15 @@ public class BankAccount {
             return true;
         }
     }
+*/
+
+enum BankAccountType{
+    CHECKING, SAVINGS;
 }
+
+enum BankAccountStatus{
+    OPEN, FROZEN, CLOSED;
+}
+
+}
+

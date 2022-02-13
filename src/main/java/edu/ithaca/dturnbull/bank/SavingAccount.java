@@ -1,12 +1,31 @@
 package edu.ithaca.dturnbull.bank;
 
-public class SavingAccount extends abstractBankAccount{
+public class SavingAccount extends BankAccount{
 
-    private double balance;
+    private double interestRate;
+    private double maxDailyWithdrawAmount;
 
-    public SavingAccount(String email, double startingBalance){
-        this.balance = startingBalance;
+    public SavingAccount(double startingBalance, double startingInterestRate, double maxWithdraw){
+        if(isAmountValid(startingBalance))
+            this.balance = startingBalance;
+
+        //should probably Test these
+        interestRate = startingInterestRate;
+        maxDailyWithdrawAmount = maxWithdraw;
+
+        status = BankAccountStatus.OPEN;
+        accountType = BankAccountType.CHECKING;
+        history = new String[]{"Account Created"};
     }
+
+
+    public void compoundDailyInterest(){
+        
+    }
+
+    /*
+    
+    --------------Unnecessary-------------
 
     @Override
     double getBalance() {
@@ -43,4 +62,5 @@ public class SavingAccount extends abstractBankAccount{
         // TODO Auto-generated method stub
         
     }
+    */
 }
