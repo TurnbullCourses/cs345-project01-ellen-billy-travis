@@ -5,10 +5,23 @@ public class User {
     private String password;
 
     public User(BankAccount[] accounts, String userEmail, String userPassword){
+        email = userEmail;
+        password = userPassword;
 
+        //UNTESTED - MAY NOT WORK
+        accounts = userAccounts;
+        //--------------------
     }
 
-    public boolean confirmCredentials(){
+    public boolean confirmCredentials(String enteredEmail, String enteredPassword){
+        if(email.compareTo(enteredEmail) != 0){
+            return false;
+        }
+
+        if(password.compareTo(enteredPassword) != 0){
+            return false;
+        }
+
         return true;
     }
 
