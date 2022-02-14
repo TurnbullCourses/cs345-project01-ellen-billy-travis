@@ -49,6 +49,18 @@ public class User {
     }
 
 
+    /**
+     * @throws IllegalArgumentException - if index of the account does not exist
+     * @param index - the index of the account
+     * @return - the BankAccount
+     */
+    public BankAccount getAccount(int index) throws IllegalArgumentException{
+        if(index >= 0 && index < userAccounts.length){
+            return userAccounts[index];
+        }
+
+        throw new IllegalArgumentException("Account does not exist");
+    }
 
     /**
      * Returns whether or not the given string can be a valid password
