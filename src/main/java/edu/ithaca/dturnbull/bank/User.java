@@ -48,6 +48,14 @@ public class User {
         return true;
     }
 
+    /**
+     * Adds an account to the Users list of owned accounts
+     * @param account the account being added
+     */
+    public void AddAccount(BankAccount account){
+
+    }
+
 
     /**
      * @throws IllegalArgumentException - if index of the account does not exist
