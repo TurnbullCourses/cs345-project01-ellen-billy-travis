@@ -4,7 +4,23 @@ public class User {
     private String email;
     private String password;
 
+    /**
+     * User construstor class
+     * @param accounts - the accounts the User owns
+     * @param userEmail - the email string they use to login to account
+     * @param userPassword - the password they will use to login to account
+     */
     public User(BankAccount[] accounts, String userEmail, String userPassword){
+        if(!isEmailValid(userEmail))
+            //throw error
+
+        if(!isPasswordValid(userPassword))
+            //throw error
+
+        if(accounts == null || accounts.length <= 0){
+            //throw error
+        }
+
         email = userEmail;
         password = userPassword;
 
@@ -13,7 +29,14 @@ public class User {
         //--------------------
     }
 
+    /**
+     * Returns wether or not the user logged in correctly
+     * @param enteredEmail
+     * @param enteredPassword
+     * @return true if username and password are correct, false otherwise
+     */
     public boolean confirmCredentials(String enteredEmail, String enteredPassword){
+        
         if(email.compareTo(enteredEmail) != 0){
             return false;
         }
@@ -27,10 +50,25 @@ public class User {
 
 
 
+    /**
+     * Returns whether or not the given string can be a valid password
+     * @param userPassword - the given string that is being tested
+     * @return true if given string can be a valid password, false otherwise
+     */
     public static boolean isPasswordValid(String userPassword){
-        return true;
+        //No password rules yet
+        //Only has to be a non=empty string
+        if(userPassword.length() > 0)
+            return true;
+
+        return false;
     }
 
+    /**
+     * Returns whether or not the given string can be a valid email
+     * @param userEmail - the given string being testes
+     * @return true if the string is a valid email, false otherwise
+     */
     public static boolean isEmailValid(String userEmail){
         
         if(userEmail.length() <= 0)
