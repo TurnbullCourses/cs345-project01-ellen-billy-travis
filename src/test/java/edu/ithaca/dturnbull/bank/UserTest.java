@@ -7,22 +7,27 @@ public class UserTest {
     
     @Test
     void constructorTest(){
-        //TODO
-        //We need a functioning BankAccount class first
-        //Email should only be associated with the user
-        
-        /*BankAccount account1 = new BankAccount("a@b.com", 100);
-        BankAccount account2 = new BankAccount("b@a.com", 200);
+        BankAccount account1 = new CheckingAccount(100);
+        BankAccount account2 = new SavingAccount(200, .01, 100);
         
         BankAccount accounts1[] = {};
         BankAccount accounts2[] = {account1};
         BankAccount accounts3[] = {account1, account2};
 
 
-        User user1 = new User(accounts1, "a@b.com", "123"); //0 accounts
+        
         User user2 = new User(accounts2, "a@b.com", "123"); //1 accounts
         User user3 = new User(accounts3, "a@b.com", "123"); //2 accounts
-        */
+
+        //Checking Accounts
+        assertTrue(account1 == user2.getAccount(0));
+        assertTrue(account1 == user3.getAccount(0));
+
+        //Savings Accounts
+        assertTrue(account2 == user3.getAccount(1));
+        
+        //Zero accounts
+        assertThrows(IllegalArgumentException.class,() -> new User(accounts1, "a@b.com", "123")); //0 accounts)
     }
 
     @Test
