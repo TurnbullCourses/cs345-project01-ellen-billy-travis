@@ -1,4 +1,8 @@
 package edu.ithaca.dturnbull.bank;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class User {
     private BankAccount userAccounts[];
     private String email;
@@ -53,7 +57,39 @@ public class User {
      * @param account the account being added
      */
     public void AddAccount(BankAccount account){
+        int index = nextAvailableSpot();
+        if(index == -1){
+            extendAccountsSpace();
+            index = nextAvailableSpot();
+        }
 
+        userAccounts[index] = account;
+    }
+
+    private int nextAvailableSpot(){
+        for(int i = 0; i<userAccounts.length; i++){
+            if(userAccounts[i] == null){
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    private void extendAccountsSpace(){
+        //copy accounts to a temp array
+        BankAccount temp[] = new BankAccount[userAccounts.length];
+        for(int i = 0; i<userAccounts.length; i++){
+            temp[i] = userAccounts[i];
+        }
+
+        //double userAccounts size
+        userAccounts = new BankAccount[temp.length * 2];
+
+        //copy accounts back to userAccounts
+        for(int i = 0; i<temp.length; i++){
+            userAccounts[i] = temp[i];
+        }
     }
 
 
