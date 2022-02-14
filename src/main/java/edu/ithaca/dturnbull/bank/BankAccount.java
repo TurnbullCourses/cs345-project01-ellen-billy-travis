@@ -24,6 +24,10 @@ public abstract class BankAccount {
         return balance;
     }
 
+    public String[] getHistory(){
+        return history;
+    }
+
     /*public String getEmail(){
         return email;
     }
