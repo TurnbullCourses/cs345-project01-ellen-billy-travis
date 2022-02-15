@@ -62,6 +62,11 @@ public class User {
      * @param account the account being added
      */
     public void AddAccount(BankAccount newAccount){
+
+        if(!isAccountValid(newAccount)){
+            throw new IllegalArgumentException("Invalid BankAccount");
+        }
+
         int index = nextAvailableSpot();
         if(index == -1){
             extendAccountsSpace();
@@ -109,6 +114,19 @@ public class User {
         }
 
         throw new IllegalArgumentException("Account does not exist");
+    }
+
+    /**
+     * Returns whether or not the account is valid
+     * @param userAccount - the account being tested
+     * @return false if account is invalid, true otherwise
+     */
+    public static boolean isAccountValid(BankAccount userAccount){
+        if(userAccount == null){
+            return false;
+        }
+
+        return true;
     }
 
     /**

@@ -51,6 +51,31 @@ public class UserTest {
 
     }
     
+    @Test
+    void AddAccountTest(){
+        BankAccount account1 = new CheckingAccount(100);
+        BankAccount account2 = new SavingAccount(200, .01, 100);
+        BankAccount account3 = new SavingAccount(300, .01, 100);
+        
+        BankAccount accounts1[] = new BankAccount[]{account1};
+        BankAccount accounts2[] = new BankAccount[]{account1, account2};
+        BankAccount accounts3[] = new BankAccount[]{account1, account2, account3};
+
+        User user1 = new User(accounts1, "a@b.com", "123"); //1 accounts
+        User user2 = new User(accounts2, "a@b.com", "123"); //2 accounts
+        User user3 = new User(accounts3, "a@b.com", "123"); //3 accounts
+
+        //Add Savings Accounts
+        user1.AddAccount(new SavingAccount(400, .01, 100));
+        assertTrue(user1.getAccount(1).balance == 400);
+
+        //Add Checking Accounts
+        user1.AddAccount(new CheckingAccount(450));
+        assertTrue(user1.getAccount(2).balance == 450);
+
+        //Add Null Account
+        assertThrows(IllegalArgumentException.class, () -> user1.AddAccount(null));
+    }
 
     @Test
     void confirmCredentialsTest(){
