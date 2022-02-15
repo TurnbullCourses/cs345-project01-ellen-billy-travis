@@ -10,9 +10,9 @@ public class UserTest {
         BankAccount account1 = new CheckingAccount(100);
         BankAccount account2 = new SavingAccount(200, .01, 100);
         
-        BankAccount accounts1[] = {};
-        BankAccount accounts2[] = {account1};
-        BankAccount accounts3[] = {account1, account2};
+        BankAccount accounts1[] = new BankAccount[]{};
+        BankAccount accounts2[] = new BankAccount[]{account1};
+        BankAccount accounts3[] = new BankAccount[]{account1, account2};
 
 
         
@@ -20,11 +20,11 @@ public class UserTest {
         User user3 = new User(accounts3, "a@b.com", "123"); //2 accounts
 
         //Checking Accounts
-        assertTrue(account1 == user2.getAccount(0));
-        assertTrue(account1 == user3.getAccount(0));
+        assertTrue(account1.balance == user2.getAccount(0).balance);
+        assertTrue(account1.balance == user3.getAccount(0).balance);
 
         //Savings Accounts
-        assertTrue(account2 == user3.getAccount(1));
+        assertTrue(account2.balance == user3.getAccount(1).balance);
         
         //Zero accounts
         assertThrows(IllegalArgumentException.class,() -> new User(accounts1, "a@b.com", "123")); //0 accounts)
@@ -50,6 +50,7 @@ public class UserTest {
     void isPasswordValidTest(){
 
     }
+    
 
     @Test
     void confirmCredentialsTest(){

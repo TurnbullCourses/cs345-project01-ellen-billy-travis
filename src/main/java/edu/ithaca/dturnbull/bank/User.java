@@ -4,7 +4,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class User {
-    private BankAccount userAccounts[];
+    private BankAccount accounts[];
     private String email;
     private String password;
 
@@ -14,23 +14,28 @@ public class User {
      * @param userEmail - the email string they use to login to account
      * @param userPassword - the password they will use to login to account
      */
-    public User(BankAccount[] accounts, String userEmail, String userPassword){
-        if(!isEmailValid(userEmail))
-            //throw error
+    public User(BankAccount[] userAccounts, String userEmail, String userPassword){
 
-        if(!isPasswordValid(userPassword))
-            //throw error
+        if(!isEmailValid(userEmail)){
+            throw new IllegalArgumentException("Invalid Email Address");
+        }
 
-        if(accounts == null || accounts.length <= 0){
-            //throw error
+        if(!isPasswordValid(userPassword)){
+            throw new IllegalArgumentException("Invalid Password");
+        }
+
+        if(userAccounts == null || userAccounts.length <= 0){
+            throw new IllegalArgumentException("No Valid BankAccount");
         }
 
         email = userEmail;
         password = userPassword;
 
-        //UNTESTED - MAY NOT WORK
-        accounts = userAccounts;
-        //--------------------
+        //Copy BankAccounts to accounts[]
+        accounts = new BankAccount[userAccounts.length];
+        for(int i = 0; i<userAccounts.length; i++){
+            accounts[i] = userAccounts[i];
+        }
     }
 
     /**
@@ -56,19 +61,19 @@ public class User {
      * Adds an account to the Users list of owned accounts
      * @param account the account being added
      */
-    public void AddAccount(BankAccount account){
+    public void AddAccount(BankAccount newAccount){
         int index = nextAvailableSpot();
         if(index == -1){
             extendAccountsSpace();
             index = nextAvailableSpot();
         }
 
-        userAccounts[index] = account;
+        accounts[index] = newAccount;
     }
 
     private int nextAvailableSpot(){
-        for(int i = 0; i<userAccounts.length; i++){
-            if(userAccounts[i] == null){
+        for(int i = 0; i<accounts.length; i++){
+            if(accounts[i] == null){
                 return i;
             }
         }
@@ -78,17 +83,17 @@ public class User {
 
     private void extendAccountsSpace(){
         //copy accounts to a temp array
-        BankAccount temp[] = new BankAccount[userAccounts.length];
-        for(int i = 0; i<userAccounts.length; i++){
-            temp[i] = userAccounts[i];
+        BankAccount temp[] = new BankAccount[accounts.length];
+        for(int i = 0; i<accounts.length; i++){
+            temp[i] = accounts[i];
         }
 
-        //double userAccounts size
-        userAccounts = new BankAccount[temp.length * 2];
+        //double accounts size
+        accounts = new BankAccount[temp.length * 2];
 
-        //copy accounts back to userAccounts
+        //copy accounts back to accounts
         for(int i = 0; i<temp.length; i++){
-            userAccounts[i] = temp[i];
+            accounts[i] = temp[i];
         }
     }
 
@@ -99,8 +104,8 @@ public class User {
      * @return - the BankAccount
      */
     public BankAccount getAccount(int index) throws IllegalArgumentException{
-        if(index >= 0 && index < userAccounts.length){
-            return userAccounts[index];
+        if(index >= 0 && index < accounts.length){
+            return accounts[index];
         }
 
         throw new IllegalArgumentException("Account does not exist");
