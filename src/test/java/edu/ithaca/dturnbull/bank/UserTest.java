@@ -83,7 +83,7 @@ public class UserTest {
 
     @Test
     void confirmCredentialsTest(){
-        BankAccount accounts[] = {};
+        BankAccount accounts[] = {new CheckingAccount(100)};
         User user1 = new User(accounts, "a@b.com", "password");
 
         assertTrue(user1.confirmCredentials("a@b.com", "password")); //Matches exactly
