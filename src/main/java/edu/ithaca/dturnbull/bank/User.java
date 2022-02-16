@@ -76,6 +76,10 @@ public class User {
         accounts[index] = newAccount;
     }
 
+    /**
+     * Returns the index of the first null item in the accounts array
+     * @return the index of the first null item, -1 if there is none
+     */
     private int nextAvailableSpot(){
         for(int i = 0; i<accounts.length; i++){
             if(accounts[i] == null){
@@ -86,6 +90,11 @@ public class User {
         return -1;
     }
 
+    /**
+     * Doubles the amount of space in the accounts array
+     * @post the size of the accounts array is doubled and the orignal content is 
+     * stored back into the array
+     */
     private void extendAccountsSpace(){
         //copy accounts to a temp array
         BankAccount temp[] = new BankAccount[accounts.length];
