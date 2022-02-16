@@ -49,6 +49,14 @@ public class UserTest {
     @Test 
     void isPasswordValidTest(){
 
+        assertTrue(User.isPasswordValid("password"));
+
+        //Empty string fails
+        assertFalse(User.isPasswordValid(""));
+
+        //Non-empty string passes
+        assertTrue(User.isPasswordValid("p"));//one letter
+        assertTrue(User.isPasswordValid(" "));//one space
     }
     
     @Test
@@ -58,12 +66,8 @@ public class UserTest {
         BankAccount account3 = new SavingAccount(300, .01, 100);
         
         BankAccount accounts1[] = new BankAccount[]{account1};
-        BankAccount accounts2[] = new BankAccount[]{account1, account2};
-        BankAccount accounts3[] = new BankAccount[]{account1, account2, account3};
 
         User user1 = new User(accounts1, "a@b.com", "123"); //1 accounts
-        User user2 = new User(accounts2, "a@b.com", "123"); //2 accounts
-        User user3 = new User(accounts3, "a@b.com", "123"); //3 accounts
 
         //Add Savings Accounts
         user1.AddAccount(new SavingAccount(400, .01, 100));
@@ -99,8 +103,8 @@ public class UserTest {
         assertFalse(user1.confirmCredentials("a@b.com", "passwordd")); //extra characters
         assertFalse(user1.confirmCredentials("a@b.com", "password ")); //extra characters - space
 
-        
     }
+    
 
     
 }
