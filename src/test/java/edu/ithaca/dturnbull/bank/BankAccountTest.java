@@ -1,6 +1,9 @@
 package edu.ithaca.dturnbull.bank;
 
 import org.junit.jupiter.api.Test;
+
+import edu.ithaca.dturnbull.bank.BankAccount.BankAccountStatus;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -66,6 +69,17 @@ class BankAccountTest {
         //Yeah, this is a comment -Travis
         //check for exception thrown correctly
         //assertThrows(IllegalArgumentException.class, ()-> new BankAccount("", 100));
+    }
+
+    @Test
+    void closeAccountTest(){
+        User user = new User(new BankAccount[] {new CheckingAccount(100), new SavingAccount(200, .01, 50)}, "eac@gmail.com", "1234");
+        BankTeller teller = new BankTeller("genericName", "unsafePassword");
+
+        teller.closeAccount(user.getAccount(0));
+
+        assertTrue(user.getAccount(0).status == BankAccountStatus.CLOSED);
+        assertTrue(user.getAccount(1).status == BankAccountStatus.OPEN);
     }
 
 }
