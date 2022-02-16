@@ -4,7 +4,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class User {
-    private BankAccount accounts[];
+    public BankAccount accounts[];
     private String email;
     private String password;
 
