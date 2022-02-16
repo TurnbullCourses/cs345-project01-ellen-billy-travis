@@ -23,6 +23,7 @@ public class BankTeller extends Teller{
     }
 
     public void closeAccount(BankAccount account){
+        account.history[account.history.length - 1] = "Account closed";
         account.status = BankAccountStatus.CLOSED;
     }
 }
