@@ -49,6 +49,14 @@ public class UserTest {
     @Test 
     void isPasswordValidTest(){
 
+        assertTrue(User.isPasswordValid("password"));
+
+        //Empty string fails
+        assertFalse(User.isPasswordValid(""));
+
+        //Non-empty string passes
+        assertTrue(User.isPasswordValid("p"));//one letter
+        assertTrue(User.isPasswordValid(" "));//one space
     }
     
     @Test
