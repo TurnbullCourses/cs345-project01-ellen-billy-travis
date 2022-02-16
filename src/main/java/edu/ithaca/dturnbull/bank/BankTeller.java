@@ -1,5 +1,6 @@
 package edu.ithaca.dturnbull.bank;
 
+import edu.ithaca.dturnbull.bank.BankAccount.BankAccountStatus;
 import edu.ithaca.dturnbull.bank.BankAccount.BankAccountType;
 
 public class BankTeller extends Teller{
@@ -19,5 +20,10 @@ public class BankTeller extends Teller{
     public void createCheckingAccount(User owner, double startingBalance){
         BankAccount account = new CheckingAccount(startingBalance);
         owner.AddAccount(account);
+    }
+
+    public void closeAccount(BankAccount account){
+        account.history[account.history.length - 1] = "Account closed";
+        account.status = BankAccountStatus.CLOSED;
     }
 }
