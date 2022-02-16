@@ -32,7 +32,7 @@ public class SavingAccount extends BankAccount{
      * @post interest is added to the account's balance
      */
     public void compoundDailyInterest(){
-        
+        balance *= interestRate;
     }
 
     /*
