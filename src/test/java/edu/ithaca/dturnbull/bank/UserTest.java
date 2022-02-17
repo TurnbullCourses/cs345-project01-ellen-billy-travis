@@ -49,14 +49,16 @@ public class UserTest {
     @Test 
     void isPasswordValidTest(){
 
-        assertTrue(User.isPasswordValid("password"));
+        assertTrue(User.isPasswordValid("P@55w0rd"));
 
         //Empty string fails
         assertFalse(User.isPasswordValid(""));
 
-        //Non-empty string passes
-        assertTrue(User.isPasswordValid("p"));//one letter
-        assertTrue(User.isPasswordValid(" "));//one space
+        //not all requirements met
+        assertFalse(User.isPasswordValid("Password")); //no symbol
+        assertFalse(User.isPasswordValid("password#")); //no uppercase letter
+        assertFalse(User.isPasswordValid("P@5s")); //not long enough
+        assertFalse(User.isPasswordValid("PasswordP@55w0rd")); //too long
     }
     
     @Test
@@ -84,16 +86,16 @@ public class UserTest {
     @Test
     void confirmCredentialsTest(){
         BankAccount accounts[] = {};
-        User user1 = new User(accounts, "a@b.com", "password");
+        User user1 = new User(accounts, "a@b.com", "P@55w0rd");
 
-        assertTrue(user1.confirmCredentials("a@b.com", "password")); //Matches exactly
+        assertTrue(user1.confirmCredentials("a@b.com", "P@55w0rd")); //Matches exactly
         
         //Only password matches
-        assertFalse(user1.confirmCredentials("a@b.co", "password")); //one character off
-        assertFalse(user1.confirmCredentials("@b.com", "password")); //one character off
-        assertFalse(user1.confirmCredentials("", "password")); //empty string
-        assertFalse(user1.confirmCredentials("a@b.comm", "password")); //extra characters
-        assertFalse(user1.confirmCredentials("a@b.com ", "password")); //extra characters - space
+        assertFalse(user1.confirmCredentials("a@b.co", "P@55w0rd")); //one character off
+        assertFalse(user1.confirmCredentials("@b.com", "P@55w0rd")); //one character off
+        assertFalse(user1.confirmCredentials("", "P@55w0rd")); //empty string
+        assertFalse(user1.confirmCredentials("a@b.comm", "P@55w0rd")); //extra characters
+        assertFalse(user1.confirmCredentials("a@b.com ", "P@55w0rd")); //extra characters - space
 
 
         //Only email matches
@@ -102,7 +104,6 @@ public class UserTest {
         assertFalse(user1.confirmCredentials("a@b.com", "")); //empty string
         assertFalse(user1.confirmCredentials("a@b.com", "passwordd")); //extra characters
         assertFalse(user1.confirmCredentials("a@b.com", "password ")); //extra characters - space
-
     }
     
 
