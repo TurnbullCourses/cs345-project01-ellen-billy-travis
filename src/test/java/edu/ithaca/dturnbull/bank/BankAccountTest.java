@@ -42,11 +42,29 @@ class BankAccountTest {
 
     @Test
     void withdrawTest() throws InsufficientFundsException{
+        
+        //-----------Checking Account------------------
         CheckingAccount bankAccount = new CheckingAccount(200);
         bankAccount.withdraw(100);
 
+        //Withdraw valid amounts
         assertEquals(100, bankAccount.getBalance(), 0.001);
-        assertThrows(InsufficientFundsException.class, () -> bankAccount.withdraw(300));
+        bankAccount.withdraw(99.99);
+        assertEquals(0.01, bankAccount.getBalance(), 0.001);
+
+        CheckingAccount bankAccount2 = new CheckingAccount(100);
+        assertThrows(InsufficientFundsException.class, () -> bankAccount2.withdraw(200));
+        assertThrows(InsufficientFundsException.class, () -> bankAccount2.withdraw(100.01));
+
+        //withdraw invalid amounts
+        assertThrows(IllegalArgumentException.class, () -> bankAccount2.withdraw(-100));
+        assertThrows(IllegalArgumentException.class, () -> bankAccount2.withdraw(-.01));
+        assertThrows(IllegalArgumentException.class, () -> bankAccount2.withdraw(20.001));
+
+        //Withdraw exact amount
+        bankAccount2.withdraw(100);
+        assertEquals(0, bankAccount2.getBalance(), 0.001);
+
     }
 
     /*@Test
