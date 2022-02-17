@@ -144,12 +144,48 @@ public class User {
      * @return true if given string can be a valid password, false otherwise
      */
     public static boolean isPasswordValid(String userPassword){
-        //No password rules yet
-        //Only has to be a non=empty string
-        if(userPassword.length() > 0)
-            return true;
+        //Password Rules
+        //non empty string
+        //At least 8 characters and less or equal that 15;
+        //At least one uppercase
+        //At least one of these special character (@, $, %. #, &)
 
-        return false;
+        //non-empty string
+        if(userPassword.length() <= 0)
+            return false;
+
+        //8 to 15 characters
+        if(userPassword.length() < 8 && userPassword.length() > 15)
+            return false;
+
+        //At least one uppercase
+        boolean hasUpper = false;
+        for(int i = 0; i<userPassword.length(); i++){
+            if(userPassword.charAt(i) >= 'A' && userPassword.charAt(i) <= 'Z'){
+                hasUpper = true;
+                i += userPassword.length();
+            }
+        }
+
+        if(!hasUpper)
+            return false;
+
+        
+        //At least one special character
+        boolean hasSpecial = false;
+        for(int i = 0; i<userPassword.length(); i++){
+            if(userPassword.charAt(i) == '@' 
+                || userPassword.charAt(i) == '#'  
+                || userPassword.charAt(i) == '$'   
+                || userPassword.charAt(i) == '%'   
+                || userPassword.charAt(i) == '&' ){
+                    
+                     hasSpecial = true;
+                     i += userPassword.length();
+            }
+        }
+
+        return true;
     }
 
     /**
