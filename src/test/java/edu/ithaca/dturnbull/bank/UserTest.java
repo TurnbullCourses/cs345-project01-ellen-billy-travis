@@ -16,8 +16,8 @@ public class UserTest {
 
 
         
-        User user2 = new User(accounts2, "a@b.com", "123"); //1 accounts
-        User user3 = new User(accounts3, "a@b.com", "123"); //2 accounts
+        User user2 = new User(accounts2, "a@b.com", "P@55w0rd"); //1 accounts
+        User user3 = new User(accounts3, "a@b.com", "P@55w0rd"); //2 accounts
 
         //Checking Accounts
         assertTrue(account1.balance == user2.getAccount(0).balance);
@@ -27,7 +27,7 @@ public class UserTest {
         assertTrue(account2.balance == user3.getAccount(1).balance);
         
         //Zero accounts
-        assertThrows(IllegalArgumentException.class,() -> new User(accounts1, "a@b.com", "123")); //0 accounts)
+        assertThrows(IllegalArgumentException.class,() -> new User(accounts1, "a@b.com", "P@55w0rd")); //0 accounts)
     }
 
     @Test
@@ -55,7 +55,7 @@ public class UserTest {
         assertFalse(User.isPasswordValid(""));
 
         //not all requirements met
-        assertFalse(User.isPasswordValid("Password")); //no symbol
+        assertFalse(User.isPasswordValid("P@55w0rd")); //no symbol
         assertFalse(User.isPasswordValid("password#")); //no uppercase letter
         assertFalse(User.isPasswordValid("P@5s")); //not long enough
         assertFalse(User.isPasswordValid("PasswordP@55w0rd")); //too long
@@ -69,7 +69,7 @@ public class UserTest {
         
         BankAccount accounts1[] = new BankAccount[]{account1};
 
-        User user1 = new User(accounts1, "a@b.com", "123"); //1 accounts
+        User user1 = new User(accounts1, "a@b.com", "P@55w0rd"); //1 accounts
 
         //Add Savings Accounts
         user1.AddAccount(new SavingAccount(400, .01, 100));
@@ -85,7 +85,8 @@ public class UserTest {
 
     @Test
     void confirmCredentialsTest(){
-        BankAccount accounts[] = {};
+        BankAccount account1 = new CheckingAccount(100);
+        BankAccount accounts[] = {account1};
         User user1 = new User(accounts, "a@b.com", "P@55w0rd");
 
         assertTrue(user1.confirmCredentials("a@b.com", "P@55w0rd")); //Matches exactly
@@ -105,7 +106,5 @@ public class UserTest {
         assertFalse(user1.confirmCredentials("a@b.com", "passwordd")); //extra characters
         assertFalse(user1.confirmCredentials("a@b.com", "password ")); //extra characters - space
     }
-    
-
-    
+ 
 }
