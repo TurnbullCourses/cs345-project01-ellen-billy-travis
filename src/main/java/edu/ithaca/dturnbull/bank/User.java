@@ -185,6 +185,9 @@ public class User {
             }
         }
 
+        if(!hasSpecial == true)
+            return false;
+
         return true;
     }
 
