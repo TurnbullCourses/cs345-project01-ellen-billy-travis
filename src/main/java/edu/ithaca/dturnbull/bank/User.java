@@ -155,7 +155,7 @@ public class User {
             return false;
 
         //8 to 15 characters
-        if(userPassword.length() < 8 && userPassword.length() > 15)
+        if(userPassword.length() < 8 || userPassword.length() > 15)
             return false;
 
         //At least one uppercase
