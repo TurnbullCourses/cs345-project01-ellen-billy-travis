@@ -7,19 +7,6 @@ public abstract class BankAccount {
     protected BankAccountStatus status;
     protected double balance;
 
-    /**
-     * @throws IllegalArgumentException if email is invalid
-     */
-    /*public BankAccount(String email, double startingBalance){
-        if (isEmailValid(email)){
-            this.email = email;
-            this.balance = startingBalance;
-        }
-        else {
-            throw new IllegalArgumentException("Email address: " + email + " is invalid, cannot create account");
-        }
-    }*/
-
     public double getBalance(){
         return balance;
     }
@@ -27,11 +14,6 @@ public abstract class BankAccount {
     public String[] getHistory(){
         return history;
     }
-
-    /*public String getEmail(){
-        return email;
-    }
-    */
 
     /**
      * 
@@ -78,16 +60,6 @@ public abstract class BankAccount {
         }
     }
 
-/*
-    public static boolean isEmailValid(String email){
-        if (email.indexOf('@') == -1){
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-*/
 
 enum BankAccountType{
     CHECKING, SAVINGS;

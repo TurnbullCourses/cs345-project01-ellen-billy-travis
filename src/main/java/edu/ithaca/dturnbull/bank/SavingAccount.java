@@ -34,45 +34,4 @@ public class SavingAccount extends BankAccount{
     public void compoundDailyInterest(){
         balance *= interestRate;
     }
-
-    /*
-    
-    --------------Unnecessary-------------
-
-    @Override
-    double getBalance() {
-        // TODO Auto-generated method stub
-        return balance;
-    }
-
-    @Override
-    boolean isAmountValid(double amount) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    void deposit(double amount) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    void withdraw(double amount) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    void transfer(double amount) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    void checkHistory() {
-        // TODO Auto-generated method stub
-        
-    }
-    */
 }
