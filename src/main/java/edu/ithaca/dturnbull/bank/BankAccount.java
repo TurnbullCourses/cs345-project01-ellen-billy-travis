@@ -60,6 +60,52 @@ public abstract class BankAccount {
         }
     }
 
+    /**
+     * Adds an entry to the history log
+     * @param entry - the entry to be added to history
+     */
+    public void addToHistory(String entry){
+        int index = nextAvailableSpace();
+
+        if(index == -1){
+            extendHistorySpace();
+            index = nextAvailableSpace();
+        }
+
+        history[index] = entry;
+    }
+    /**
+     * Returns the next available space for an entry in account history
+     * @return the index of the next available space, -1 if there is none
+     */
+    private int nextAvailableSpace(){
+        for(int i = 0; i< history.length; i++){
+            if(history[i] == null || history[i] == ""){
+                return i;
+            }
+        }
+        return -1;
+    }
+    /**
+     * Doubles the length of the history array and preserves the existing data
+     * @post history length is doubled and the original data is preserved
+     */
+    private void extendHistorySpace(){
+        //copy history to a temp array
+        String temp[] = new String[history.length];
+        for(int i = 0; i<history.length; i++){
+            temp[i] = history[i];
+        }
+
+        //double accounts size
+        history = new String[temp.length * 2];
+
+        //copy accounts back to accounts
+        for(int i = 0; i<temp.length; i++){
+            history[i] = temp[i];
+        }
+    }
+
 
 enum BankAccountType{
     CHECKING, SAVINGS;

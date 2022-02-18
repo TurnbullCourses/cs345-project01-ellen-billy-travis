@@ -75,6 +75,38 @@ class BankAccountTest {
     }*/
 
     @Test
+    void addToHistoryTest(){
+        CheckingAccount account = new CheckingAccount(100);
+        String message = "LLL";
+        
+        account.addToHistory(message);
+
+        //Can Add one entry to history
+        assertEquals(account.getHistory()[1], message); //Adds one properly
+
+        //Extends space if filled up
+        account.addToHistory(message);
+        account.addToHistory(message);
+        account.addToHistory(message);
+
+        message = "JK";
+        account.addToHistory(message);
+        assertEquals(account.getHistory()[5], message); //Correctly extends space
+
+        //Ignore empty strings
+        message = "";
+        account.addToHistory(message);
+        account.addToHistory(message);
+
+        message = "f";
+        account.addToHistory(message);
+        assertEquals(account.getHistory()[6], message); //Correctly ignores empty strings
+
+
+
+    }
+
+    @Test
     void constructorTest() {
         CheckingAccount bankAccount = new CheckingAccount(200);
 
