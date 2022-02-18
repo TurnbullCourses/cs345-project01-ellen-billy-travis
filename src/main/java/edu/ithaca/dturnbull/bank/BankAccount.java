@@ -41,6 +41,7 @@ public abstract class BankAccount {
     public void deposit(double amount){
         if(isAmountValid(amount)){
             balance += amount;
+            addToHistory("Deposited " + amount + ", balance is now " + balance);
         }
     }
 
@@ -54,6 +55,7 @@ public abstract class BankAccount {
 
         if (amount <= balance){
             balance -= amount;
+            addToHistory("Withdrew "+amount +", Balance is now " + balance);
         }
         else {
             throw new InsufficientFundsException("Not enough money");
