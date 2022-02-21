@@ -33,5 +33,6 @@ public class SavingAccount extends BankAccount{
      */
     public void compoundDailyInterest(){
         balance *= interestRate;
+        addToHistory("Interest compounded, balance is now " + balance);
     }
 }
