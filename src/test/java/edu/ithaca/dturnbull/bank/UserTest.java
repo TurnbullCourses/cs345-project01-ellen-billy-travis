@@ -55,7 +55,7 @@ public class UserTest {
         assertFalse(User.isPasswordValid(""));
 
         //not all requirements met
-        assertFalse(User.isPasswordValid("P@55w0rd")); //no symbol
+        assertFalse(User.isPasswordValid("Pa55w0rd")); //no symbol
         assertFalse(User.isPasswordValid("password#")); //no uppercase letter
         assertFalse(User.isPasswordValid("P@5s")); //not long enough
         assertFalse(User.isPasswordValid("PasswordP@55w0rd")); //too long
