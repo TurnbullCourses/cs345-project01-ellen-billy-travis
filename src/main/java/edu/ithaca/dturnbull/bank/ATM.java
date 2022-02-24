@@ -8,9 +8,10 @@ public class ATM extends Teller{
      * The constructor function for the ATM object
      * @param atmLocation - the location of the ATM object
      */
+    
     public ATM(String atmLocation){
         location = atmLocation;
-    }
+    }  
 
     /**
      * Returns the location of the ATM
