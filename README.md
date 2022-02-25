@@ -14,6 +14,9 @@ https://drive.google.com/file/d/1EGT8TMok6fjgRhuCI_TGFmP8BGSkTbso/view?usp=shari
 Link to UML Sequence Diagrams: 
 https://drive.google.com/file/d/1WQ3rStSOQuIKaOzdsniCAYgS431npTGe/view?usp=sharing
 
+Link to UML State Diagram: 
+https://drive.google.com/file/d/1CKPK2_KdbWAHwnKDC1N4ANNCGCxdIha3/view?usp=sharing
+
 Three Use Cases that you will implement first:
 1. - Login
 2. - createAccount
