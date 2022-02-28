@@ -24,14 +24,15 @@ Three Use Cases that you will implement first:
 
 Which classes & methods do you need to implement for these use cases?
 (Indicated which team member is responsible for the implemenation)
-1. - customerLogin
-2. - createChecking
-3. - createSaving
+1. - customerLogin - Travis
+2. - createChecking - Billy
+3. - createSaving - Billy
 4. - deposit - Ellen 
 5. - isAmountValid - Ellen 
   
 Work Division: 
   Ellen - state diagram, deposit class, initial user interface
+  Billy - state diagram, abstract bank account, create savings and checking account
 
 Don't forget to use Test-Driven Development (TDD)
 1. Write Class and Method Function Headers
