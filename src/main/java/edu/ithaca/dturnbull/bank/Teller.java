@@ -2,12 +2,28 @@ package edu.ithaca.dturnbull.bank;
 
 public abstract class Teller {
     
+
     /**
-     * The login check for the user
-     * @param user - the user account to login to
+     * Attempts to find a user account associated with an email and password
      * @param email - the entered email string
      * @param password - the entered password string
-     * @return true if the correct email and password for the given user
+     * @return true if the correct email and password match any user
+     */
+    public boolean userLogin(BankSystem bank, String email, String password){
+        User customer = bank.loginToAccount(email, password);
+        if(customer != null){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    /**
+     * Attempts to log into the account of a given user
+     * @param email - the entered email string
+     * @param password - the entered password string
+     * @return true if the correct email and password match the user
      */
     public boolean userLogin(User user, String email, String password){
         return user.confirmCredentials(email, password);

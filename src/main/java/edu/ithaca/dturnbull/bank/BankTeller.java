@@ -12,6 +12,26 @@ public class BankTeller extends Teller{
         password = userPassword;
     }
 
+        /**
+     * Returns wether or not the user logged in correctly
+     * @param enteredEmail
+     * @param enteredPassword
+     * @return true if username and password are correct, false otherwise
+     */
+    public boolean confirmCredentials(String enteredEmail, String enteredPassword){
+        
+        if(username.compareTo(enteredEmail) != 0){
+            return false;
+        }
+
+        if(password.compareTo(enteredPassword) != 0){
+            return false;
+        }
+
+        return true;
+    }
+    
+
     public void createSavingsAccount(User owner, double startingBalance, double startingInterestRate, double maxWithdraw){
         BankAccount account = new SavingAccount(startingBalance, startingInterestRate, maxWithdraw);
         owner.AddAccount(account);
