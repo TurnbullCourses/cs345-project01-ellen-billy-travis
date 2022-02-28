@@ -27,9 +27,8 @@ Which classes & methods do you need to implement for these use cases?
 1. - customerLogin
 2. - createChecking
 3. - createSaving
-4. - deposit
-5. - isAmountValid
-6. - <<Add more...>>
+4. - deposit - Ellen 
+5. - isAmountValid - Ellen 
   
 Work Division: 
   Ellen - state diagram, deposit class, initial user interface
