@@ -20,11 +20,11 @@ public class UserTest {
         User user3 = new User(accounts3, "a@b.com", "P@55w0rd"); //2 accounts
 
         //Checking Accounts
-        assertTrue(account1.balance == user2.getAccount(0).balance);
-        assertTrue(account1.balance == user3.getAccount(0).balance);
+        assertTrue(account1.balance == user2.getAccount(0).balance); // checks for added checking account
+        assertTrue(account1.balance == user3.getAccount(0).balance); // checks for added checking account
 
         //Savings Accounts
-        assertTrue(account2.balance == user3.getAccount(1).balance);
+        assertTrue(account2.balance == user3.getAccount(1).balance); // checks for added savings account
         
         //Zero accounts
         assertThrows(IllegalArgumentException.class,() -> new User(accounts1, "a@b.com", "P@55w0rd")); //0 accounts)
@@ -49,10 +49,10 @@ public class UserTest {
     @Test 
     void isPasswordValidTest(){
 
-        assertTrue(User.isPasswordValid("P@55w0rd"));
+        assertTrue(User.isPasswordValid("P@55w0rd")); // valid password
 
         //Empty string fails
-        assertFalse(User.isPasswordValid(""));
+        assertFalse(User.isPasswordValid("")); // empty string
 
         //not all requirements met
         assertFalse(User.isPasswordValid("Pa55w0rd")); //no symbol
@@ -67,17 +67,17 @@ public class UserTest {
         BankAccount account2 = new SavingAccount(200, .01, 100);
         BankAccount account3 = new SavingAccount(300, .01, 100);
         
-        BankAccount accounts1[] = new BankAccount[]{account1};
+        BankAccount accounts1[] = new BankAccount[]{account1, account2, account3};
 
         User user1 = new User(accounts1, "a@b.com", "P@55w0rd"); //1 accounts
 
         //Add Savings Accounts
         user1.AddAccount(new SavingAccount(400, .01, 100));
-        assertTrue(user1.getAccount(1).balance == 400);
+        assertTrue(user1.getAccount(1).balance == 400); // checks for added savings account
 
         //Add Checking Accounts
         user1.AddAccount(new CheckingAccount(450));
-        assertTrue(user1.getAccount(2).balance == 450);
+        assertTrue(user1.getAccount(2).balance == 450); // checks for added checking account
 
         //Add Null Account
         assertThrows(IllegalArgumentException.class, () -> user1.AddAccount(null));
