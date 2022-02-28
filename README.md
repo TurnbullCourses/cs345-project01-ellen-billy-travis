@@ -30,6 +30,9 @@ Which classes & methods do you need to implement for these use cases?
 4. - deposit
 5. - isAmountValid
 6. - <<Add more...>>
+  
+Work Division: 
+  Ellen - state diagram, deposit class, initial user interface
 
 Don't forget to use Test-Driven Development (TDD)
 1. Write Class and Method Function Headers
