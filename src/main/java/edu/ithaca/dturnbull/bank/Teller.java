@@ -18,7 +18,7 @@ public abstract class Teller {
      * @param account - the account to display the balance from
      */
     public void checkBalance(BankAccount account){
-
+        account.getBalance();
     }
 
     /**
@@ -26,12 +26,12 @@ public abstract class Teller {
      * @param account - the account being withdrawed from
      * @param amount -  the amount wished to be withdrawn
      */
-    public void withdrawFromAccount(BankAccount account, double amount){
-
+    public void withdrawFromAccount(BankAccount account, double amount) throws InsufficientFundsException{
+        account.withdraw(amount);
     }
 
     public void depositToAccount(BankAccount account, double amount){
-        
+        account.deposit(amount);
     }
 
     /**

@@ -20,4 +20,23 @@ public class BankTellerTest {
         assertTrue(user.getAccount(1).status == BankAccountStatus.OPEN); // checks open account
 
     }
+
+    /**
+     * Integration Tests 
+     * */
+    @Test
+    void integrationTest() throws InsufficientFundsException{
+        User user = new User(new BankAccount[] {new SavingAccount(200, .01, 50)}, "hellokitty@gmail.com", "P@55w0rd");
+        BankTeller teller = new BankTeller("Harold", "0ffici@l");
+
+        teller.createCheckingAccount(user, 1000);
+        assertTrue(user.getAccount(1).status == BankAccountStatus.OPEN);
+
+        teller.withdrawFromAccount(user.getAccount(1), 100);
+        assertTrue(user.getAccount(1).getBalance() == 900);
+
+        teller.depositToAccount(user.getAccount(1), 200);
+        assertTrue(user.getAccount(1).getBalance() == 1100);
+    }    
 }
+
